@@ -162,9 +162,14 @@
               </div>
               <div class="card-body">
                 <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span style="font-weight: bold; font-size: 18px;">Recently added deceased: {{ $recent_deceased->firstname }} {{ $recent_deceased->middlename }} {{ $recent_deceased->lastname }}</span>
-                  </p>
+                        <p class="d-flex flex-column">
+            @if($recent_deceased)
+                <span style="font-weight: bold; font-size: 18px;">Recently added deceased: {{ $recent_deceased->firstname }} {{ $recent_deceased->middlename }} {{ $recent_deceased->lastname }}</span>
+            @else
+                <span style="font-weight: bold; font-size: 18px;">No deceased records available.</span>
+            @endif
+        </p>
+
                 </div>
                 <!-- /.d-flex -->
 

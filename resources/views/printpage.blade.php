@@ -217,7 +217,7 @@
                                             <h5 class="col-sm-11">{{ $b['section_name'] }} <i style = "color: blue">PAID {{$b['block_cost']}}</i> </h5>
                                             @endif
                                             @if($data['deceased_info'][0]->remaining_balance != 0)
-                                            <h5 class="col-sm-11">{{ $b['section_name'] }} <i style = "color: red">PARTIAL {{$data['deceased_info'][0]->remaining_balance}} </i> </h5>
+                                            <h5 class="col-sm-11">{{ $b['section_name'] }} <i style = "color: red">Remaining Balance {{$data['deceased_info'][0]->remaining_balance}} </i> </h5>
                                             @endif
                                         </div>
                                     @endif
