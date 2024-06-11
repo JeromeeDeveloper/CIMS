@@ -19,8 +19,6 @@
   .login-box {
       background: rgba(255, 255, 255, 0.8);
       margin-top: 50px;
-      padding: 30px;
-      border-radius: 10px;
       max-width: 500px;
       margin: 0 auto;
   }
@@ -124,11 +122,18 @@
         success:  function(response)
         {
           if(response.status == 1)
-          {
-            $("#changePassword_form")[0].reset();
-            alert("You have successfully change your password. Go back to login.");
-            window.location.href = "{{ route('admin.login') }}";
-          }
+            {
+                $("#changePassword_form")[0].reset();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Password Changed',
+                    text: 'You have successfully changed your password. Redirecting to login...',
+                    timer: 3000,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = "{{ route('admin.login') }}";
+                });
+            }
           else
           {
             $.each(response.messages, function(key, value) {
@@ -149,5 +154,6 @@
     })
   })
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

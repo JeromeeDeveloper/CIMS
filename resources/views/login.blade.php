@@ -215,10 +215,16 @@
                 $("#validation-errors").html("<li>"+response.message+"</li>");
               }
             },
-            error: function(resp)
-            {
-                alert("Something went wrong!")
-            }
+            error: function(resp) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Something went wrong!',
+                        timer: 3000,
+                        showConfirmButton: false
+                    });
+                }
+
          })
        })
     })

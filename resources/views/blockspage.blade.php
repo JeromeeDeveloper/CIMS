@@ -56,9 +56,16 @@
      
         </style>
         @if (Session::get('NotFound'))
-            <script>
-                alert({{ Session::get('NotFound') }});
-            </script>
+        <script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Not Found',
+        text: "{{ Session::get('NotFound') }}",
+        timer: 3000,
+        showConfirmButton: false
+    });
+</script>
+
         @endif
 
         <div class="content-wrapper">
@@ -1036,13 +1043,28 @@
                                         $("input[name='image']").addClass('is-invalid');
                                     }
                                 });
-                            } else {
-                                alert(response.message);
-                            }
+                            } 
+                            else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error',
+                                        text: response.message,
+                                        timer: 3000,
+                                        showConfirmButton: false
+                                    });
+                                }
+
                         },
                         error: function(error) {
-                            alert("Cannot process the request.");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Cannot process the request.',
+                                timer: 3000,
+                                showConfirmButton: false
+                            });
                         }
+
                     })
                 } else {
                     $.ajax({
@@ -1093,13 +1115,28 @@
                                         $("input[name='image']").addClass('is-invalid');
                                     }
                                 });
-                            } else {
-                                alert(response.message);
-                            }
+                            } 
+                            else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error',
+                                        text: response.message,
+                                        timer: 3000,
+                                        showConfirmButton: false
+                                    });
+                                }
+
                         },
                         error: function(error) {
-                            alert("Cannot process the request.");
-                        }
+                                                    Swal.fire({
+                                                        icon: 'error',
+                                                        title: 'Error',
+                                                        text: 'Cannot process the request.',
+                                                        timer: 3000,
+                                                        showConfirmButton: false
+                                                    });
+                                                }
+
                     })
                 }
             })

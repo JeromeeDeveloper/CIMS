@@ -443,57 +443,6 @@
     })
 })
 
-    // function show_allData()
-    // {
-    //     $.ajax({
-    //         type: 'get',
-    //         url: "{{ route('deceaseds.get_allMaturity') }}",
-    //         dataType: 'json',
-    //         success:function(data)
-    //         {
-    //             var row = "";
-    //             var total = 0;
-    //             if(data.length > 0)
-    //             {
-    //                 for(var i = 0; i<data.length; i++)
-    //                 {
-    //                     row += '<tr data-id = '+data[i].deceased_id+' style = "text-transform: uppercase">';
-    //                     row += '<td>'+data[i].lastname+", "+data[i].middlename+", "+data[i].firstname+'</td>';
-    //                     row += '<td align="center">'+formatDate(data[i].dateof_burial)+'</td>';
-    //                     row += '<td align="center">'+data[i].section_name+'</td>';
-    //                     var count = calculateCoffinYears(data[i].dateof_burial, data[i].validity);
-    //                     var difference = (data[i].validity-count)*1;
-    //                     if(count < data[i].validity)
-    //                     {
-    //                       row += '<td align = "center"><span class="badge badge-primary">'+difference+' Years Remaining</span></td>';
-    //                     }
-    //                     else 
-    //                     {
-    //                     var difference = (count-data[i].validity)*1;
-    //                       row += '<td style = "color: red" align = "center"><span class="badge badge-danger">'+difference+' Exceeding Years</span></td>';
-    //                     }
-    //                     row += '<td align = "center">';
-    //                     row += '<button data-id = '+data[i].deceased_id+' id = "btn_assignment" type="button" class="btn btn-primary btn-sm btn-flat">';
-    //                     row += '<i class = "fas fa fa-route"></i>';
-    //                     row += '</button>';
-    //                     row += "</td>";
-    //                     row += '</tr>';
-    //                     total += 1;
-    //                 }
-    //             }
-    //             else
-    //             {
-    //                 row += '<tr style = "text-transform: uppercase"><td colspan = "6">No data available</td></tr>';
-    //             }
-    //             $("#no_ofrecords").text(total + " Records");
-    //             $("#tbl_deceaseds tbody").html(row);
-    //         },
-    //         error: function()
-    //         {
-    //             alert("System cannot process request.")
-    //         }
-    //     })
-    // }
     function formatDate(userdate)
     {
         var month = ["January","February","March","April","May","June","July","August","September","October","November","December"];

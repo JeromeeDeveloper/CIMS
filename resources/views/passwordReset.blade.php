@@ -81,10 +81,16 @@
         {
           if(response.status == 1)
           {
-            $("#processing").fadeOut();
-            $("#email").val("");
-            $("#error").text("");
-            alert("Please check your email to change your password.");
+              $("#processing").fadeOut();
+              $("#email").val("");
+              $("#error").text("");
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: 'Please check your email to change your password.',
+                  timer: 3000,
+                  showConfirmButton: false
+              });
           }
           if(response.status == 0)
           {
@@ -99,12 +105,19 @@
           }
         },
         error: function(resp)
-        { 
-          $("#email").removeClass('is-invalid');
-          $("#error").text("");
-          $("#processing").fadeOut();
-          alert("Please check your connection and try again!");
-        }
+          { 
+            $("#email").removeClass('is-invalid');
+            $("#error").text("");
+            $("#processing").fadeOut();
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Please check your connection and try again!',
+                timer: 3000,
+                showConfirmButton: false
+            });
+          }
+
       })
     })
   })

@@ -1378,7 +1378,6 @@ $(document).ready(function() {
         },
     }).then((result) => {
         if (result.isConfirmed) {
-            // Prompt for payment using SweetAlert2
             Swal.fire({
                 title: 'Please enter the payment:',
                 input: 'text',
@@ -1413,11 +1412,13 @@ $(document).ready(function() {
                                 show_allSpaceAreas(deceased_id);
                                 AutoReload();
                             } else if (response.status == 2) {
-                                Swal.fire('Info', response.message, 'info');
-                            } else {
-                                Swal.fire('Error', "Something went wrong cannot process", 'error');
-                            }
-                        },
+                                    Swal.fire('Info', response.message, 'info');
+                                } else if (response.status == 3) {
+                                    Swal.fire('Error', response.message, 'error');
+                                } else {
+                                    Swal.fire('Error', "Something went wrong cannot process", 'error');
+                                }
+                            },
                         complete: function(resp) {
                             $("#ajax_modal").modal('hide');
                         },
@@ -1457,15 +1458,27 @@ $(document).ready(function() {
                 dataType:'json',
                 success: function(response){
                     if(response.status == 1)
-                    {
-                        show_allServices(deceased_id);
-                        AutoReload();
-                        alert(response.message);
-                    }
-                    else
-                    {
-                        alert(response.message);
-                    }
+                        {
+                            show_allServices(deceased_id);
+                            AutoReload();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                timer: 3000,
+                                showConfirmButton: false
+                            });
+                        }
+                        else
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                timer: 3000,
+                                showConfirmButton: false
+                            });
+                        }
                 },
                 complete: function(resp)
                     {
@@ -1474,8 +1487,15 @@ $(document).ready(function() {
                     error: function(resp)
                     {
                         $("#ajax_modal").modal('hide');
-                        alert("Something went wrong!\nPlease check your connection\nThis issue might be on sending email to the reciepient.");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Something went wrong! Please check your connection. This issue might be on sending email to the recipient.',
+                            timer: 3000,
+                            showConfirmButton: false
+                        });
                     }
+
             })
         }
     })
@@ -2337,8 +2357,15 @@ $(document).ready(function() {
                     }
                     else
                     {
-                        alert(response.message);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            timer: 3000,
+                            showConfirmButton: false
+                        });
                     }
+
                 },
                 complete: function(response){
                     $("#preloader").hide();
@@ -2618,8 +2645,15 @@ $(document).ready(function() {
                         }
                         else
                         {
-                            alert(response.message);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                timer: 3000,
+                                showConfirmButton: false
+                            });
                         }
+
                     },
                     complete: function(response){
                         $("#preloader").hide();

@@ -1381,6 +1381,16 @@ class DeceasedController extends Controller
         $_block_payment = "";
 
         $deceased = Deceased::find($deceased_id);
+
+        $block = Block::find($space_id);
+      if ($block->slot == 0) {
+        return response()->json([
+            'status' => 3,
+            'message' => 'The vacancy is 0 in this block.'
+        ]);
+    }
+
+
         if($request->status == "assign")
         {
 
