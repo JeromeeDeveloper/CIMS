@@ -51,6 +51,14 @@
         #search:focus {
             border: 5px solid orange;
         }
+
+        .img-holder {
+    height: 0;
+    padding-bottom: 33%;
+    overflow: hidden;
+    margin-top: 75px;
+        }
+        
     </style>
   
 
@@ -107,7 +115,7 @@
     <div class="section light-bg" id = "results" style = "display: none">
         <div class="container">
 
-            <div class="section-title">
+            <div class="section-title mt-5">
                 <small>HIGHLIGHTS</small>
                 <h3>Deceased Results</h3>
             </div>
@@ -287,7 +295,7 @@
     <!-- // end .section -->
     <div class="section light-bg" id = "gallery">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title mt-5">
                 <small>Space areas</small>
                 <h3>Space Areas of Lugait Cemetery</h3>
             </div>
@@ -697,28 +705,37 @@
     </script>
     <script>
         $(document).ready(function() {
-            $("#btn_search").on("click", function() {
-                var value = $("#search").val().toLowerCase();
-                if (value != "") {
-                    $("#btn_search span").html(
-                        '<i class="fas fa fa-refresh fa-lg fa-spin" style="color: #ffffff;"></i> Fetching ...'
-                    ).delay(3000).fadeOut('slow', function() {
-                        $("#btn_search span").html(
-                            '<i class = "fa fa-search"></i>&nbsp; Find Deceased').fadeIn();
-                        $("#results").fadeIn(3000);
-                        $('html, body').animate({
-                            scrollTop: $("#results").offset().top
-                        }, 1000);
-                        $("#tbl_results tbody tr").filter(function() {
-                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                        });
-                    });
-                } else {
-                    $("#search").css({
-                        'border': '5px solid red',
-                    });
-                }
+            $("#btn_search").on("click", search);
+
+$("#search").on("keypress", function(event) {
+    if (event.key === "Enter") {
+        search();
+    }
+});
+
+function search() {
+    var value = $("#search").val().toLowerCase();
+    if (value != "") {
+        $("#btn_search span").html(
+            '<i class="fas fa fa-refresh fa-lg fa-spin" style="color: #ffffff;"></i> Fetching ...'
+        ).delay(3000).fadeOut('slow', function () {
+            $("#btn_search span").html(
+                '<i class="fa fa-search"></i>&nbsp; Find Deceased').fadeIn();
+            $("#results").fadeIn(3000);
+            $('html, body').animate({
+                scrollTop: $("#results").offset().top
+            }, 1000);
+            $("#tbl_results tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
+        });
+    } else {
+        $("#search").css({
+            'border': '5px solid red',
+        });
+    }
+}
+
             $("#tbl_results").on('click', '#btn_view', function(e) {
                 e.preventDefault();
                 $("#deceased_info").fadeIn(3000);

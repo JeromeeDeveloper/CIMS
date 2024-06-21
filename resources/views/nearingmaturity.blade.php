@@ -32,9 +32,9 @@
       
     }
 
-    #tbl_deceaseds_filter label {
+    /* #tbl_deceaseds_filter label {
     display: none;
-  }
+  } */
   </style>
   <style>
     input[type=text]:focus {
@@ -87,7 +87,7 @@
                     <button class = "btn btn-primary"  id = "btn_reload" type = "button"><i class = "fa fa-sync"></i> &nbsp;&nbsp;Reload Table</button>
                     </div>
                     <div class="col-md-4">
-                        <div class="input-group">
+                        <div class="input-group" style ="display: none">
                             <div class="input-group-prepend">
                             <span class="input-group-text" ><i class="fas fa-search"></i></span>
                             </div>

@@ -34,8 +34,24 @@
     
   </style>
   <style>
-    #tbl_deceaseds_filter label {
+    /* #tbl_deceaseds_filter label {
     display: none;
+  } */
+
+  button#btn_disapprove{
+    border-radius: 7px;
+    transition: transform 0.3s ease;
+  }
+
+  button#btn_disapprove:hover{
+    transform: scale(1.2);
+  }
+  button#btn_approve{
+    border-radius: 7px;
+    transition: transform 0.3s ease;
+  }
+  button#btn_approve:hover{
+    transform: scale(1.2);
   }
     input[type=text]:focus {
         border: 3px solid #17a2b8;
@@ -108,7 +124,7 @@
                         <button class = "btn btn-primary " id = "btn_reload" type = "button"><i class = "fa fa-sync"></i> &nbsp;&nbsp;Reload Table</button>
                     </div>
                     <div class="col-md-6">
-                        <div class="input-group">
+                        <div class="input-group" style ="display: none">
                             <div class="input-group-prepend">
                             <span class="input-group-text" ><i class="fas fa-search"></i></span>
                             </div>

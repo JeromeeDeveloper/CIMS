@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'service_name' => 'COMMON BONE DEPOSITORY',
         ]);
         \App\Models\Deceased::factory(20)->create();
-        \App\Models\ContactPerson::factory()->count(10)->create();
+        \App\Models\ContactPerson::factory()->count(5)->create();
         \App\Models\Block::factory()->create([
             'section_name' => 'PHASE I MEMORIAL PARK PRIVATE LOT',
             'block_cost' => 5000,

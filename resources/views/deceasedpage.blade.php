@@ -85,9 +85,11 @@
     input[type=date]{
         font-family: 'Segoe UI' 
     }
-    #tbl_deceaseds_filter label {
+    /* #tbl_deceaseds_filter label {
     display: none;
-  }
+  } */
+
+  in
 
 
   </style>
@@ -127,7 +129,7 @@
                   <div id="export_buttons">
                     <!-- Export buttons content here -->
                   </div>
-                  <div class="input-group" style="max-width: 300px;">
+                  <div class="input-group" style="display: none; ">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-search"></i></span>
                     </div>
