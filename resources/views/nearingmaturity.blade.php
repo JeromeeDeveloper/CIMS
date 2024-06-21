@@ -383,6 +383,7 @@
     Swal.fire({
         title: 'Are you sure you want to proceed with this service?',
         text: 'This action cannot be undone!',
+        icon: "info",
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Yes',

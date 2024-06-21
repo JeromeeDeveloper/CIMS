@@ -1370,6 +1370,7 @@ $(document).ready(function() {
         title: 'Are you sure you want to ASSIGN the deceased in this block?',
         showDenyButton: true,
         showCancelButton: true,
+        icon: "info",
         confirmButtonText: 'Yes',
         denyButtonText: 'No',
         customClass: {    
@@ -1529,6 +1530,7 @@ $(document).ready(function() {
         title: 'Are you sure you want to MOVE the deceased in this block?',
         showDenyButton: true,
         showCancelButton: true,
+        icon: "question",
         confirmButtonText: 'Yes',
         denyButtonText: 'No',
         customClass: {    
@@ -2384,9 +2386,10 @@ $(document).ready(function() {
         }
         else
         {
-            Swal.fire({
+        Swal.fire({
         title: 'Are you sure you want to update the information of the deceased?',
         showDenyButton: true,
+        icon: "question",
         showCancelButton: true,
         confirmButtonText: 'Yes',
         denyButtonText: 'No',

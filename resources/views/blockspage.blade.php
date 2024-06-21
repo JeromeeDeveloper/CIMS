@@ -728,6 +728,7 @@
         title: 'Are you sure you want to proceed?',
         text: 'Note: Please check the data before submission as this action cannot be undone!',
         showDenyButton: true,
+        icon: "info",
         showCancelButton: true,
         confirmButtonText: 'Yes',
         denyButtonText: 'No',
@@ -911,6 +912,7 @@
         Swal.fire({
             title: 'Are you sure you want to expand this section?',
             showDenyButton: true,
+            icon: "info",
             showCancelButton: true,
             confirmButtonText: 'Yes',
             denyButtonText: 'No',

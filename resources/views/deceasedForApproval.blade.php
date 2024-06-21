@@ -352,6 +352,7 @@
     Swal.fire({
         title: 'Are you sure you want to approve this deceased?',
         showDenyButton: true,
+        icon: "info",
         showCancelButton: true,
         confirmButtonText: 'Yes',
         denyButtonText: 'No',
@@ -401,6 +402,7 @@
     Swal.fire({
         title: 'Are you sure you want to disapprove this deceased?',
         showDenyButton: true,
+        icon: "question",
         showCancelButton: true,
         confirmButtonText: 'Yes',
         denyButtonText: 'No',
